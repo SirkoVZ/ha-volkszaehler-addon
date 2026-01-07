@@ -1,0 +1,14 @@
+{
+  "name": "Volkszähler Home Assistant Add-ons",
+  "slug": "volkszaehler-addons",
+  "maintainer": "SirkoVZ",
+  "url": "https://github.com/SirkoVZ/ha-volkszaehler-addon",
+  "addons": [
+    {
+      "name": "Volkszähler Middleware",
+      "slug": "volkszaehler",
+      "description": "Volkszähler Middleware as Home Assistant Add-on (uses core-mariadb)",
+      "version": "1.0.0"
+    }
+  ]
+}

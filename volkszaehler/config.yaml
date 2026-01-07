@@ -1,7 +1,7 @@
 name: Volkszähler Middleware
 slug: volkszaehler
 version: "1.0.0"
-description: Volkszähler Middleware als Home Assistant Add-on (nutzt core-mariadb)
+description: Volkszähler Middleware as Home Assistant Add-on (uses core-mariadb)
 arch:
   - amd64
   - aarch64
