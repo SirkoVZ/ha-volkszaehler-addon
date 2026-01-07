@@ -1,0 +1,20 @@
+name: Volkszähler Middleware
+slug: volkszaehler
+version: "1.0.0"
+description: Volkszähler Middleware als Home Assistant Add-on (nutzt core-mariadb)
+arch:
+  - amd64
+  - aarch64
+startup: services
+boot: auto
+ingress: true
+ingress_port: 80
+panel_icon: mdi:flash
+panel_title: Volkszähler
+init: false
+
+options: {}
+schema: {}
+
+map:
+  - share:rw
