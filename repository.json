@@ -3,12 +3,28 @@
   "slug": "volkszaehler-addons",
   "maintainer": "SirkoVZ",
   "url": "https://github.com/SirkoVZ/ha-volkszaehler-addon",
+  "license": "MIT",
   "addons": [
     {
       "name": "Volkszähler Middleware",
       "slug": "volkszaehler",
-      "description": "Volkszähler Middleware as Home Assistant Add-on (uses core-mariadb)",
-      "version": "1.0.0"
+      "description": "Volkszähler Middleware als Home Assistant Add-on (nutzt core-mariadb)",
+      "version": "1.0.0",
+      "startup": "services",
+      "boot": "auto",
+      "arch": [
+        "amd64",
+        "aarch64"
+      ],
+      "ingress": true,
+      "ingress_port": 80,
+      "panel_icon": "mdi:flash",
+      "panel_title": "Volkszähler",
+      "map": [
+        {
+          "share": "rw"
+        }
+      ]
     }
   ]
 }
