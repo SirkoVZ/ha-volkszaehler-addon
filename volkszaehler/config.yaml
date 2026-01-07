@@ -1,7 +1,7 @@
-name: Volksz‰hler Middleware
+name: Volksz√§hler Middleware
 slug: volkszaehler
 version: "1.0.0"
-description: Volksz‰hler Middleware as Home Assistant Add-on (uses core-mariadb)
+description: Volksz√§hler Middleware as Home Assistant Add-on (uses core-mariadb)
 arch:
   - amd64
   - aarch64
@@ -10,7 +10,7 @@ boot: auto
 ingress: true
 ingress_port: 80
 panel_icon: mdi:flash
-panel_title: Volksz‰hler
+panel_title: Volksz√§hler
 init: false
 
 options: {}
