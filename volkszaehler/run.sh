@@ -1,6 +1,6 @@
 #!/usr/bin/with-contenv bash
 set -e
 
-echo "[INFO] Starting Volkszähler Middleware"
+echo "[INFO] Starting Volkszaehler Middleware"
 
 exec httpd -DFOREGROUND
