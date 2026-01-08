@@ -1,6 +1,6 @@
 name: Volkszaehler Middleware
 slug: volkszaehler
-version: "1.0.9"
+version: "1.0.11"
 description: Volkszaehler Middleware as Home Assistant Add-on (uses core-mariadb)
 arch:
   - amd64
@@ -8,9 +8,11 @@ arch:
 startup: services
 boot: auto
 ports:
-  8080/tcp: 8080
+  80/tcp: 8080
+ports_description:
+  80/tcp: "Volkszaehler Weboberfläche (HTTP)
+  
 ingress: true
-ingress_port: 80
 panel_icon: mdi:flash
 panel_title: Volkszaehler
 init: false
