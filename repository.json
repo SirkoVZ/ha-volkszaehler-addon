@@ -1,14 +1,14 @@
 {
-  "name": "Volksz‰hler Home Assistant Add-ons",
+  "name": "Volksz√§hler Home Assistant Add-ons",
   "slug": "volkszaehler-addons",
   "maintainer": "SirkoVZ",
-  "url": "https://github.com/SirkoVZ/ha-volkszaehler-addon",
+  "url": "https://github.com/SirkoVZ/volkszaehler.org",
   "license": "MIT",
   "addons": [
     {
-      "name": "Volksz‰hler Middleware",
+      "name": "Volksz√§hler Middleware",
       "slug": "volkszaehler",
-      "description": "Volksz‰hler Middleware als Home Assistant Add-on (nutzt core-mariadb)",
+      "description": "Volksz√§hler Middleware als Home Assistant Add-on (nutzt core-mariadb)",
       "version": "1.0.0",
       "startup": "services",
       "boot": "auto",
@@ -19,7 +19,7 @@
       "ingress": true,
       "ingress_port": 80,
       "panel_icon": "mdi:flash",
-      "panel_title": "Volksz‰hler",
+      "panel_title": "Volksz√§hler",
       "map": [
         {
           "share": "rw"
