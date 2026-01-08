@@ -65,6 +65,7 @@ RUN printf '%s\n' \
 # Rechte sicherstellen
 RUN chown -R root:root /var/www/volkszaehler
 COPY rootfs /
+RUN chmod +x /etc/cont-init.d/10-config.sh
 COPY run.sh /run.sh
 RUN chmod +x /run.sh
 
