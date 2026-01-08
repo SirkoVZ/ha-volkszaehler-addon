@@ -44,10 +44,20 @@ RUN composer install \
     --no-progress \
     --optimize-autoloader
 
-# Apache-Konfiguration einspielen
-RUN cp docker/apache/apache.conf /etc/apache2/conf.d/000-default.conf \
- && sed -i 's#/var/www/html#/var/www/volkszaehler/public#g' /etc/apache2/conf.d/000-default.conf
-
+# ──────────────────────────────────────────────────────────────
+# Apache-Konfiguration erstellen
+# ──────────────────────────────────────────────────────────────
+RUN printf '%s\n' \
+   '<VirtualHost *:80>' \
+   '    DocumentRoot "/var/www/volkszaehler/public"' \
+   '    <Directory "/var/www/volkszaehler/public">' \
+   '        AllowOverride All' \
+   '        Require all granted' \
+   '    </Directory>' \
+   '    ErrorLog /var/log/apache2/error.log' \
+   '    CustomLog /var/log/apache2/access.log combined' \
+   '</VirtualHost>' \
+   > /etc/apache2/conf.d/000-default.conf
 
 # Rechte sicherstellen
 RUN chown -R root:root /var/www/volkszaehler
