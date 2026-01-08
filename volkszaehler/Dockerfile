@@ -34,7 +34,7 @@ RUN composer remove \
     --dev \
     --no-update
 
-
+RUN sed -i '/"php-pm\/php-pm"/d' composer.json
 # Jetzt saubere Runtime-Dependencies installieren
 RUN composer install \
     --no-dev \
