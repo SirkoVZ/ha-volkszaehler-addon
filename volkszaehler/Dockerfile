@@ -27,8 +27,8 @@ RUN git clone https://github.com/volkszaehler/volkszaehler.org.git volkszaehler
 
 WORKDIR /var/www/volkszaehler
 
-# php-pm aus composer.json entfernen (nicht HA-kompatibel)
-RUN composer remove php-pm/php-pm --no-update
+# 1. Dev-Abhängigkeiten komplett entfernen
+RUN composer remove php-pm/php-pm phpunit/phpunit --no-update
 
 # Jetzt saubere Runtime-Dependencies installieren
 RUN composer install \
