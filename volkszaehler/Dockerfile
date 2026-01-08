@@ -21,9 +21,9 @@ RUN apk add --no-cache \
     git \
     composer
 
-WORKDIR /var/www
+# WORKDIR /var/www
 
-RUN git clone https://github.com/SirkoVZ/volkszaehler.org.git volkszaehler
+RUN cd /var/www && git clone https://github.com/SirkoVZ/volkszaehler.org.git volkszaehler
 
 WORKDIR /var/www/volkszaehler
 
