@@ -16,9 +16,11 @@ RUN apk add --no-cache \
     php81-session \
     php81-mbstring \
     php81-xml \
+    php81-dom \
     git \
     mariadb-client \
     composer
+
 WORKDIR /var/www
 
 RUN git clone https://github.com/volkszaehler/volkszaehler.org.git volkszaehler
