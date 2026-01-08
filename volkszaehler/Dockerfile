@@ -18,6 +18,7 @@ RUN apk add --no-cache \
     php81-xml \
     php81-dom \
     mariadb-client \
+    git \
     composer
 
 WORKDIR /var/www
