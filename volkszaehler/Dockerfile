@@ -28,13 +28,10 @@ RUN git clone https://github.com/volkszaehler/volkszaehler.org.git volkszaehler
 WORKDIR /var/www/volkszaehler
 
 # 1. Dev-Abhängigkeiten komplett entfernen
-RUN composer remove \
-    php-pm/php-pm \
-    phpunit/phpunit \
-    --dev \
-    --no-update
-
-RUN sed -i '/"php-pm\/php-pm"/d' composer.json
+RUN composer remove php-pm/php-pm php-pm/httpkernel-adapter --no-update || true \
+ && sed -i '/"php-pm\/php-pm"/d' composer.json \
+ && sed -i '/"php-pm\/httpkernel-adapter"/d' composer.json
+ 
 # Jetzt saubere Runtime-Dependencies installieren
 RUN composer install \
     --no-dev \
