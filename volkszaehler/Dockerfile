@@ -23,7 +23,7 @@ RUN apk add --no-cache \
 
 WORKDIR /var/www
 
-RUN git clone https://github.com/volkszaehler/volkszaehler.org.git volkszaehler
+RUN git clone https://github.com/SirkoVZ/volkszaehler.org.git volkszaehler
 
 WORKDIR /var/www/volkszaehler
 
