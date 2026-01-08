@@ -17,12 +17,11 @@ RUN apk add --no-cache \
     mariadb-client \
     composer
 
-WORKDIR /var/www
+COPY volkszaehler /var/www/volkszaehler
+WORKDIR /var/www/volkszaehler
+RUN composer install --no-dev --optimize-autoloader
 
-RUN git clone https://github.com/SirkoVZ/volkszaehler.org.git . \
- && composer install --no-dev --optimize-autoloader
-
-# Apache config aus dem Repo übernehmen
+# Apache config aus dem Repo Ã¼bernehmen
 RUN cp docker/apache.conf /etc/apache2/conf.d/000-default.conf \
  && sed -i 's#/var/www/html#/var/www/public#g' /etc/apache2/conf.d/000-default.conf
 
