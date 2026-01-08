@@ -17,7 +17,6 @@ RUN apk add --no-cache \
     php81-mbstring \
     php81-xml \
     php81-dom \
-    git \
     mariadb-client \
     composer
 
@@ -44,13 +43,13 @@ RUN composer install \
     --no-progress \
     --optimize-autoloader
 
+# Apache-Konfiguration einspielen
+RUN cp docker/apache/apache.conf /etc/apache2/conf.d/000-default.conf \
+ && sed -i 's#/var/www/html#/var/www/volkszaehler/public#g' /etc/apache2/conf.d/000-default.conf
 
-# Apache config aus dem Repo übernehmen
-RUN cp docker/apache.conf /etc/apache2/conf.d/000-default.conf \
- && sed -i 's#/var/www/html#/var/www/public#g' /etc/apache2/conf.d/000-default.conf
 
-RUN mkdir -p /run/apache2 \
- && chown -R apache:apache /var/www
+# Rechte sicherstellen
+RUN chown -R root:root /var/www/volkszaehler
 
 COPY run.sh /run.sh
 RUN chmod +x /run.sh
