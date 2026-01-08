@@ -22,9 +22,15 @@ RUN apk add --no-cache \
 
 WORKDIR /var/www
 
-RUN git clone https://github.com/volkszaehler/volkszaehler.org.git volkszaehler \
- && cd volkszaehler \
- && composer update --no-dev --optimize-autoloader
+RUN git clone https://github.com/volkszaehler/volkszaehler.org.git volkszaehler
+
+WORKDIR /var/www/volkszaehler
+
+RUN composer install \
+    --no-dev \
+    --no-interaction \
+    --no-progress \
+    --optimize-autoloader
 
 # Apache config aus dem Repo übernehmen
 RUN cp docker/apache.conf /etc/apache2/conf.d/000-default.conf \
