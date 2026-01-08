@@ -10,7 +10,7 @@ boot: auto
 ports:
   80/tcp: 8080
 ports_description:
-  80/tcp: "Volkszaehler Weboberfläche (HTTP)
+  80/tcp: "Volkszaehler Weboberfläche (HTTP)"
   
 ingress: true
 panel_icon: mdi:flash
