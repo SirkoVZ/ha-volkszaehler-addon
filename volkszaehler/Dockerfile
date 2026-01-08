@@ -17,7 +17,7 @@ RUN apk add --no-cache \
     mariadb-client \
     composer
 
-COPY volkszaehler /var/www/volkszaehler
+COPY . /var/www/volkszaehler
 WORKDIR /var/www/volkszaehler
 RUN composer install --no-dev --optimize-autoloader
 
