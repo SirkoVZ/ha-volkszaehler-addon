@@ -19,18 +19,22 @@ RUN apk add --no-cache \
     git \
     mariadb-client \
     composer
-
 WORKDIR /var/www
 
 RUN git clone https://github.com/volkszaehler/volkszaehler.org.git volkszaehler
 
 WORKDIR /var/www/volkszaehler
 
+# php-pm aus composer.json entfernen (nicht HA-kompatibel)
+RUN composer remove php-pm/php-pm --no-update
+
+# Jetzt saubere Runtime-Dependencies installieren
 RUN composer install \
     --no-dev \
     --no-interaction \
     --no-progress \
     --optimize-autoloader
+
 
 # Apache config aus dem Repo übernehmen
 RUN cp docker/apache.conf /etc/apache2/conf.d/000-default.conf \
