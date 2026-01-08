@@ -47,10 +47,13 @@ RUN composer install \
 # ──────────────────────────────────────────────────────────────
 # Apache-Konfiguration erstellen
 # ──────────────────────────────────────────────────────────────
+# Apache Rewrite aktivieren
+RUN sed -i 's/#LoadModule rewrite_module/LoadModule rewrite_module/' /etc/apache2/httpd.conf
+
 RUN printf '%s\n' \
    '<VirtualHost *:80>' \
-   '    DocumentRoot "/var/www/volkszaehler/public"' \
-   '    <Directory "/var/www/volkszaehler/public">' \
+   '    DocumentRoot "/var/www/volkszaehler/htdocs"' \
+   '    <Directory "/var/www/volkszaehler/htdocs">' \
    '        AllowOverride All' \
    '        Require all granted' \
    '    </Directory>' \
