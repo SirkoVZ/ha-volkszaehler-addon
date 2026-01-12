@@ -1,6 +1,6 @@
 name: Volkszaehler Middleware
 slug: volkszaehler
-version: "1.1.4"
+version: "1.1.5"
 description: Volkszaehler Middleware as Home Assistant Add-on 
 arch:
   - amd64
