@@ -1,3 +1,7 @@
+## 1.1.4
+
+- encoding fixed
+
 ## 1.1.3
 
 - some improvements
