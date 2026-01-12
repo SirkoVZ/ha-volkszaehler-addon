@@ -42,14 +42,14 @@ db:
     user: ${DB_ADMIN_USER}
     password: ${DB_ADMIN_PASSWORD}
 
-push:
-  server: 5582
-  broadcast: 8082
-  wamp:
-    - /
-    - /ws
-  websocket:
-    - /socket
+# push:
+#  server: 5582
+#  broadcast: 8082
+#  wamp:
+#    - /
+#    - /ws
+#  websocket:
+#    - /socket
 
 network:
   postlimit: false

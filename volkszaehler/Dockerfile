@@ -27,7 +27,7 @@ RUN cd /var/www && git clone https://github.com/SirkoVZ/volkszaehler.org.git vol
 
 WORKDIR /var/www/volkszaehler
 
-# 1. Dev-Abhängigkeiten komplett entfernen
+# 1. remove Dev-requirements completely
 RUN composer remove \
     php-pm/php-pm \
     php-pm/httpkernel-adapter \
@@ -37,7 +37,7 @@ RUN composer remove \
  && sed -i '/"php-pm\/httpkernel-adapter"/d' composer.json \
  && sed -i '/"phpunit\/phpunit"/d' composer.json
  
-# Jetzt saubere Runtime-Dependencies installieren
+# install Runtime-Dependencies 
 RUN composer install \
     --no-dev \
     --no-interaction \
@@ -45,9 +45,9 @@ RUN composer install \
     --optimize-autoloader
 
 # ──────────────────────────────────────────────────────────────
-# Apache-Konfiguration erstellen
+# create Apache-Config
 # ──────────────────────────────────────────────────────────────
-# Apache Rewrite aktivieren
+# activate Apache Rewrite
 RUN sed -i 's/#LoadModule rewrite_module/LoadModule rewrite_module/' /etc/apache2/httpd.conf
 
 RUN printf '%s\n' \
@@ -62,7 +62,7 @@ RUN printf '%s\n' \
    '</VirtualHost>' \
    > /etc/apache2/conf.d/000-default.conf
 
-# Rechte sicherstellen
+# set permissions
 RUN chown -R root:root /var/www/volkszaehler
 COPY rootfs /
 RUN chmod +x /etc/cont-init.d/10-config.sh
